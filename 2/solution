@@ -1,0 +1,17 @@
+### TIME COMPLEXITY
+
+- Untuk time complexity program pada task pertama yakni O(2n).
+- Dimana program melakukan perulangan pada tiap element N dan M sebanyak satu kali.
+- Dalam pengaksesan object 'Map' average time complexity nya adalah O(1). pengaksesan tersebut tidak memengaruhi
+  time complexity secara keseluruhan. Oleh karena itu, time complexity keseluruhan dari program adalah O(2n).
+
+### SPACE COMPLEXITY
+
+- Untuk space complexity program pada task pertama yakni O(n).
+- Dimana n tersebut adalah jumlah element 2 Array (N dan M).
+- Didalam Program, element array N disimpan kedalam 'Map' object, artinya penyimpanan tersebut memiliki
+  space complexity O(n) dalam worst case nya.
+- Membuat array kosong 'intersection' dalam menampung elemen yang sama pada N dan M juga memiliki space complexity O(n)
+  dalam worst casenya.
+- Oleh karena itu, space complexity dari dua struktur program tersebut ('Map', 'intersection') adalah O(n) karena
+  jumlah memori yang digunakan berbanding lurus dengan ukuran data inputnya.
