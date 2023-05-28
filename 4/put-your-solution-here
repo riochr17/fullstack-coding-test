@@ -1,0 +1,27 @@
+Berikut aplikasi gallery struktur perusahaan : 
+1. npm install
+2. setting / sesuaikan database config/config.json
+3. npm install -g sequelize-cli 
+4. npx sequelize-cli db:migrate
+5. npm install -g nodemon
+6. nodemon & buka browser client dan akses http://localhost:3000
+
+noted : 
+untuk route jawaban : 
+1. http://localhost:3000/api/soal-1 method post body contoh =>  { arr1: [1,2,3,4,5], arr2: [2,4,5,6] } 
+2. http://localhost:3000/api/soal-2 method post body contoh =>  { array: [1,2,3,4,5,6,7,8,9] } 
+3. http://localhost:3000/api/soal-3 method post body contoh =>   
+    {
+        "arr1": [
+                { "label": 1, "parent": null },
+                { "label": 2, "parent": 1 },
+                { "label": 3, "parent": 2 },
+                { "label": 4, "parent": 2 },
+                { "label": 5, "parent": 1 },
+                { "label": 6, "parent": 1 },
+                { "label": 7, "parent": 6 },
+                { "label": 8, "parent": 6 },
+                { "label": 9, "parent": 8 }
+            ]
+
+    } 
