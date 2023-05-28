@@ -61,11 +61,9 @@ app.get('/register', (req, res) => {
 
 app.get('/mywork', (req, res) => {
     
-    res.render('mywork', {title: 'My Work Page After Login', layout: 'partial-layout/layout-mywork'});
-    return;
 
     if (req.session.isLoggedIn) {
-        res.render('mywork', {layout: 'partial-layout/layout-mywork'});
+        res.render('mywork', {title: 'My Work Page After Login', layout: 'partial-layout/layout-mywork'});
       } else {
         res.redirect('./login');
       }
