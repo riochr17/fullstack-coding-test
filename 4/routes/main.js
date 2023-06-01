@@ -163,13 +163,27 @@ app.get('/data', async(req, res) => {
     }
 })
 
-app.get('/data-detil', async(req, res) => {
+app.get('/data-detail', async(req, res) => {
+    const id = req.query.id;
+    const page = parseInt(req.query.page) || 1; 
+    const limit = 3; 
+    const offset = (page - 1) * limit; 
+  
     try {
+      const totalCount = await OrganizationalStructures.count(); 
+      const totalPages = Math.ceil(totalCount / limit); 
 
-    }
-
-    catch(err) {
-
+      const items = await OrganizationalStructures.findAll({'id': id}, {offset, limit});
+  
+      res.json({
+        'code': '200',
+        'totalPages': totalPages,
+        'currentPage': page,
+        'data': items
+      })
+    } catch (error) {
+      console.error('Error retrieving items:', error.message);
+    
     }
 })
 

@@ -98,7 +98,7 @@ app.get('/mywork', authMiddleware, async(req, res) => {
 
 app.get('/mywork-detail', authMiddleware, async(req, res) => {
   try {
-    const getHostname = req.headers.host;;
+    const getHostname = req.headers.host;
     const RestOptionsRequest = {
         method: 'GET',
         url: `http://${getHostname}/api/data-detail?id=${page}`,
@@ -110,6 +110,7 @@ app.get('/mywork-detail', authMiddleware, async(req, res) => {
     res.render('mywork-detail', {title: 'My Work Page After Login', layout: 'partial-layout/layout-mywork', data: RestRequest.data});
   }
   catch (err) {
+    // res.send(err.message)
     res.redirect('/login');
   }
 })
