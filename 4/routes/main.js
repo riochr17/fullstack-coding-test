@@ -3,6 +3,9 @@ const app = express();
 const OrganizationNode = []; 
 const Tree = [];
 
+const db = require("./../models/index");
+const OrganizationalStructures = db.OrganizationalStructure;
+
 
 class TreeNode {
     constructor(value) {
@@ -12,8 +15,6 @@ class TreeNode {
 
     
 }
-
-
 
 app.post('/', async (req, res, next) => {
     try {
@@ -137,6 +138,39 @@ app.post('/soal-3', async(req,res,next) => {
         res.send(error)
     } 
 
+})
+
+app.get('/data', async(req, res) => {
+    const page = parseInt(req.query.page) || 1; 
+    const limit = 3; 
+    const offset = (page - 1) * limit; 
+  
+    try {
+      const totalCount = await OrganizationalStructures.count(); 
+      const totalPages = Math.ceil(totalCount / limit); 
+
+      const items = await OrganizationalStructures.findAll({offset, limit});
+  
+      res.json({
+        'code': '200',
+        'totalPages': totalPages,
+        'currentPage': page,
+        'data': items
+      })
+    } catch (error) {
+      console.error('Error retrieving items:', error.message);
+    
+    }
+})
+
+app.get('/data-detil', async(req, res) => {
+    try {
+
+    }
+
+    catch(err) {
+
+    }
 })
 
 

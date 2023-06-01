@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%- title %></title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="row mt-2 justify-content-between">
+        <div class="col-2">
+          <div class="navigation">
+            <a href="./mywork" class="btn btn-light fw-bold btn-block w-100">Home</a>
+          </div>
+        </div>
+
+        <div class="col-2">
+          <div class="navigation">
+            <a href="./login" class="btn btn-light fw-bold btn-block w-100">Login</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="content">
+    <div class="container">
+      <div class="row justify-content-center mt-5">
+        <div class="col-4">
+          <%- body %>
+        </div>
+      </div>
+    </div>
+    
+  </main>
+
+  <footer class="footer p-3 mb-0 mt-5">
+    <!-- <div class="container copyright text-right">
+        &copy; 2023. All Right Reserved.
+    </div> -->
+  </footer>
+
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
