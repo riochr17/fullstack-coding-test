@@ -42,5 +42,37 @@
   </footer>
 
   <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    let html = `<div class="row g-2">
+                    <div class="col">
+                                
+                                <div class="form-group mt-2">
+                                    <input type="text" class="form-control fw-bold text-center" name="node[]">
+                                </div>
+                            </div>
+                            <div class="col">
+                                
+                                <div class="form-group mt-2">
+                                    <input type="text" class="form-control fw-bold text-center" name="parent[]">
+                                </div>
+                            </div>
+
+                            <div class="col-1">
+                                <div class="button mt-2">
+                                    <button type="button" class="btn btn-light btn-block w-100 border border-1 rounded-0">-</button>
+                                </div>
+                            </div>
+                    </div>`;
+
+    const button = document.getElementById('add');
+    const container = document.getElementById('form_input');
+
+    button.addEventListener('click', function() {
+      // container.innerHTML = html;
+      alert('tes')
+    });
+</script>
+
 </body>
 </html>
