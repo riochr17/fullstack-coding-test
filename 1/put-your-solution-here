@@ -1,0 +1,13 @@
+app.post('/soal-1', async (req, res, next) => {
+    try {
+        const array1 = req.body.arr1;
+        const array2 = req.body.arr2;
+        const set1 = new Set(array1);
+        const set2 = new Set(array2);
+        const intersection = await [...set1].filter((element) => set2.has(element));
+        res.send(intersection);
+    }
+    catch(error) {
+        res.send(error);
+    }
+})

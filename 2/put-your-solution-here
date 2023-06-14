@@ -1,0 +1,45 @@
+app.post('/soal-2', async(req,res,next) => {
+    try {
+        const array = req.body.arr1;
+
+        const root = await new TreeNode(array[0]);
+        const stack = [root];
+    
+        for (let i = 1; i < array.length; i++) {
+            const node = new TreeNode(array[i]);
+            const parent = stack[stack.length - 1];
+    
+            parent.children.push(node);
+            stack.push(node);
+        }
+
+        console.log(root);
+    
+        const result = [];
+
+        function traverse(node) {
+            result.push(node.value);
+
+            for (let child of node.children) {
+                traverse(child);
+            }
+        }
+
+        traverse(root);
+        let responseValue = {
+            'Input Array:': array,
+            'Generated Tree': root,
+            'Flattened Array': result,
+            'Time Complexity': "O(n)",
+            'Space Complexity': "O(n)"
+        }
+        res.send({
+            responseValue
+        });
+
+    }
+    catch(error) {
+        res.send(error)
+    }
+
+})

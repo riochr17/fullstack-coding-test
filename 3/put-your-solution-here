@@ -1,0 +1,49 @@
+app.post('/soal-3', async(req,res,next) => {
+    try {
+        const array = req.body.arr1;
+        const nodeMap = {};
+        array.forEach((orgNode) => {
+            const { label, parent } = orgNode;
+            const newNode = {
+                label,
+                children: [],
+            };
+
+            nodeMap[label] = newNode;
+
+            if (parent !== null) {
+                const parentNode = nodeMap[parent];
+                parentNode.children.push(newNode);
+            }
+        });
+
+        console.log(nodeMap[1])
+
+        let tree = nodeMap[1];
+        const result = [];
+
+        function traverse(node) {
+            result.push(node.label);
+
+            for (let child of node.children) {
+                traverse(child);
+            }
+        }
+
+        traverse(tree);
+
+        
+        let responseValue = {
+            'Input Array:': array,
+            'Generated Tree': nodeMap,
+            'Flattened Array': result,
+        }
+        res.send({
+            responseValue
+        });
+    }
+    catch(error) {
+        res.send(error)
+    } 
+
+})
